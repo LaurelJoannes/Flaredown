@@ -12,7 +12,8 @@ rm(list = setdiff(ls(), lsf.str()))
 dir <- getwd()
 source(paste0(dir,"/Code/Import.R"))
 modelsave <- "KNNLabelPowerset"
-mkdir(paste0(dir, "/Data/", modelsave))
+mkdir(paste0(dir, "/Data/", modelsave,"/Models"))
+mkdir(paste0(dir, "/Data/", modelsave, "/EndScores-EndPerformances"))
 
 KNNFunction <- function(traindata, testdata, method, name, K, frequency){
   userList <- makeListOfADsPerPatientFunction(unique(traindata$user_id))
@@ -208,11 +209,11 @@ rm(list = setdiff(ls(), lsf.str()))
 ######################################################
 ## Binary Relevance Method
 ######################################################
-
 dir <- getwd()
 source(paste0(dir,"/Code/Import.R"))
 modelsave <- "KNNBinary"
-mkdir(paste0(dir, "/Data/", modelsave))
+mkdir(paste0(dir, "/Data/", modelsave,"/Models"))
+mkdir(paste0(dir, "/Data/", modelsave, "/EndScores-EndPerformances"))
 
 BinaryKNNFunction <- function(trainingSet, testSet, testUsers, name, K, threshold){
   name2 <- paste0(" Method = Euclidean", ", K = ", K , ", threshold = ", threshold, " ", name)
@@ -402,11 +403,11 @@ rm(list = setdiff(ls(), lsf.str()))
 ######################################################
 ## Algorithm Adaptation Method
 ######################################################
-
 dir <- getwd()
 source(paste0(dir,"/Code/Import.R"))
 modelsave <- "KNNMultiLabel"
-mkdir(paste0(dir, "/Data/", modelsave))
+mkdir(paste0(dir, "/Data/", modelsave, "/Models"))
+mkdir(paste0(dir, "/Data/", modelsave, "/EndScores-EndPerformances"))
 
 multiLabelKNNFunction <- function(trainingSet, testset, testUsers, name, K, threshold){
   
